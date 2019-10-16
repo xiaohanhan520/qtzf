@@ -1,10 +1,9 @@
-package com.jh.shiro;
+package com.xh.shiro;
 
 
-import com.jh.dao.UserDao;
-import com.jh.entity.User;
-import com.jh.utils.SpringContextUtil;
-import jdk.nashorn.internal.runtime.options.LoggingOption;
+import com.xh.dao.UserDao;
+import com.xh.entity.User;
+import com.xh.utils.SpringContextUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

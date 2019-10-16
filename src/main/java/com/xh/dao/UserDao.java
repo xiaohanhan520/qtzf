@@ -1,6 +1,6 @@
-package com.jh.dao;
+package com.xh.dao;
 
-import com.jh.entity.User;
+import com.xh.entity.User;
 
 public interface UserDao {
 

@@ -1,6 +1,6 @@
-package com.jh.service;
+package com.xh.service;
 
-import com.jh.entity.User;
+import com.xh.entity.User;
 
 import java.util.Map;
 

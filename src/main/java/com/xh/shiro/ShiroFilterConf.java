@@ -1,4 +1,4 @@
-package com.jh.shiro;
+package com.xh.shiro;
 
 
 import org.apache.shiro.authc.credential.CredentialsMatcher;
@@ -30,6 +30,7 @@ public class ShiroFilterConf {
         map.put("/bootstrap/**","anon");
         map.put("/img/**","anon");
         map.put("/login.jsp","anon");
+        map.put("/tool/**","anon");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         shiroFilterFactoryBean.setLoginUrl("/login.jsp");
         return shiroFilterFactoryBean;

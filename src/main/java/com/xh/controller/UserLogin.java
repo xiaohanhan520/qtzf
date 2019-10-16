@@ -1,11 +1,9 @@
-package com.jh.controller;
+package com.xh.controller;
 
-import com.jh.entity.User;
-import com.jh.service.UserService;
-import com.jh.service.serviceImpl.UserServiceImpl;
+import com.xh.entity.User;
+import com.xh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,7 +13,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping
 public class UserLogin {
 
     @Autowired

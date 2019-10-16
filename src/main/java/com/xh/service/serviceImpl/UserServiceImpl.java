@@ -1,8 +1,8 @@
-package com.jh.service.serviceImpl;
+package com.xh.service.serviceImpl;
 
-import com.jh.dao.UserDao;
-import com.jh.entity.User;
-import com.jh.service.UserService;
+import com.xh.dao.UserDao;
+import com.xh.entity.User;
+import com.xh.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
