@@ -31,17 +31,66 @@ public class ToolController {
     @ResponseBody
     @RequestMapping("idCard")
     public Object idCard(String card){
-        String url = "http://icard.ylapi.cn/id_card/query.u?uid=11119&appkey=a741d887c790e4dccbb046cc0c2f9fdc&idnumber="+card;
+        String url = "http://cb.ylapi.cn/cookbook/query.u?uid=11119&appkey=38b1c80c7456ddb82e14e70c7f308118";
         JSONObject jsonObject = HttpTools.postJson(url);
         return jsonObject;
     }
 
+    /**
+     * 医院
+     * @param
+     * @return
+     */
     @ResponseBody
-    @RequestMapping("cookBook")
-    public Object cookBook(String card){
-        String url = "http://cb.ylapi.cn/cookbook/query.u?uid=11119&appkey=a741d887c790e4dccbb046cc0c2f9fdc&idnumber="+card;
+    @RequestMapping("hospital")
+    public Object hospital(String provinceName, String cityName){
+        String url = "http://hosp.ylapi.cn/hospital/search.u?uid=11119&appkey=38b1c80c7456ddb82e14e70c7f308118&provinceName="+provinceName+"&cityName="+cityName;
         JSONObject jsonObject = HttpTools.postJson(url);
         return jsonObject;
     }
+
+
+
+
+    /**
+     * 老黄历测凶吉
+     * @return
+     */
+    @RequestMapping("lucky")
+    @ResponseBody
+    public Object lucky(String data){
+        JSONObject jsonObject = HttpTools.postJson("http://lucky.ylapi.cn/lucky/query.u?uid=11119&appkey=be2f50d2e581a3c7b0e44dc291b2c6e6&date=" + data);
+        return jsonObject;
+    }
+
+    /**
+     * 历史上的今天
+     *
+     */
+    @ResponseBody
+    @RequestMapping("todayHis")
+    public Object todayHis(String data){
+        JSONObject jsonObject = HttpTools.postJson("http://dh.ylapi.cn/today_his/query.u?uid=11119&appkey=c4dc90238fd6570b2bf23044bb9cef8a&date=" + data);
+        return jsonObject;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

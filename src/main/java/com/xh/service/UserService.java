@@ -10,4 +10,6 @@ public interface UserService {
     public Map<String , Object> queryUserLogin(User user);
 
     public void userOut();
+
+    public void registerUser(User user);
 }

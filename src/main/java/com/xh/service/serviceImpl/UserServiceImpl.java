@@ -8,6 +8,7 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
@@ -58,5 +60,11 @@ public class UserServiceImpl implements UserService {
         SecurityUtils.setSecurityManager(instance);
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
+    }
+
+    @Override
+    public void registerUser(User user) {
+        String uuid = UUID.randomUUID().toString();
+        SimpleHash md5 = new SimpleHash("MD5", user.getPassword(), uuid, 1024);
     }
 }

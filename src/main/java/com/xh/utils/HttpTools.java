@@ -34,7 +34,6 @@ public class HttpTools {
         try {
             HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
             CloseableHttpClient client = httpClientBuilder.build();
-            System.out.println(url);
             HttpPost httpPost = new HttpPost(url);
             CloseableHttpResponse response = client.execute(httpPost);
             HttpEntity entity = response.getEntity();
