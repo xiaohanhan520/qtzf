@@ -26,6 +26,9 @@ public class FileUpDo {
     public void upload(HttpServletRequest request, MultipartFile file){
         //获取文件名
         String originalFilename = file.getOriginalFilename();
+        //获取文件后缀名
+        String substring = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
+
         //获取文件路径
         String path = request.getSession().getServletContext().getRealPath("路径");
         //获取文件夹
