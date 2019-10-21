@@ -1,6 +1,7 @@
 package com.xh.shiro;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xh.dao.UserDao;
 import com.xh.entity.User;
 import com.xh.utils.SpringContextUtil;
@@ -17,6 +18,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.hibernate.validator.constraints.EAN;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -24,21 +26,23 @@ import java.util.List;
 @Slf4j
 public class MyRealm extends AuthorizingRealm {
 
+    @Autowired
+    private UserDao userDao;
+
     @Override
     //认证
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        UserDao userDao = (UserDao) SpringContextUtil.getBean(UserDao.class);
         log.info("开始身份认证");
         //获取用户名
         String username = (String) authenticationToken.getPrincipal();
         log.info("用户名为："+username);
-        User user = userDao.selectByUsername(username);
-        if (user == null){
-            log.info("登录失败");
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.eq("username",username);
+        List<User> users = userDao.selectList(userQueryWrapper);
+        if (users.get(0) == null){
             return null;
         }else{
-            log.info("登录成功");
-            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username, user.getPassword(), ByteSource.Util.bytes(user.getSale()),this.getName());
+            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username, users.get(0).getPassword(), ByteSource.Util.bytes(users.get(0).getSale()),this.getName());
             return simpleAuthenticationInfo;
         }
     }
@@ -49,8 +53,7 @@ public class MyRealm extends AuthorizingRealm {
         //获取用户名
         String primaryPrincipal = (String) principalCollection.getPrimaryPrincipal();
         log.info("用户名为："+primaryPrincipal);
-        //获取Dao层
-        UserDao userDao = (UserDao) SpringContextUtil.getBean(UserDao.class);
+
 
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
       /*

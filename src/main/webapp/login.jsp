@@ -122,7 +122,6 @@
                     </form>
                 </div>
             </div>
-
             <p class="copyright"><a href="#">@嘉汇支付</a></p>
         </div>
     </div>
