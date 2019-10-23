@@ -30,7 +30,7 @@
             data:$("#login-form").serialize(),
             success:function(data){
                 if(data.code == 200){
-                    location.href="./jsp/main.jsp"
+                    location.href="main.jsp"
                 }else {
                     $("#message").text(data.message);
                    /* $("#message").text(${sessionScope.message})*/
@@ -42,7 +42,7 @@
     <style type="text/css">
         body {
             color:#999;
-            background:url('./img/loginbg.jpg');
+            background:url('../img/loginbg.jpg');
             background-size:cover;
         }
         a {
@@ -96,7 +96,7 @@
         <div class="login-screen">
             <div class="well">
                 <div class="login-form">
-                    <img id="profile-img" class="profile-img-card" src="./img/avatar.png" />
+                    <img id="profile-img" class="profile-img-card" src="../img/avatar.png" />
                     <p id="profile-name" class="profile-name-card"></p>
                     <h4><span id="message" style="color: red"></span></h4>
                     <form action="javascript:void(0)" method="post" id="login-form">

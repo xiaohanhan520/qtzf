@@ -36,13 +36,14 @@ public class ShiroFilterConf {
         map.put("/jquery/**","anon");
         map.put("/bootstrap/**","anon");
         map.put("/img/**","anon");
-        map.put("/login.jsp","anon");
+        map.put("/manage/manage_login.jsp","anon");
+        map.put("/index.jsp","anon");
         map.put("/tool/**","anon");
         map.put("/login","anon");
         map.put("/out","anon");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
-        // setLoginUrl 如果不设置值，默认会自动寻找Web工程根目录下的"/login.jsp"页面 或 "/login" 映射
-        shiroFilterFactoryBean.setLoginUrl("/login.jsp");
+        // setLoginUrl 如果不设置值，默认会自动寻找Web工程根目录下的"/manage_login.jsp"页面 或 "/login" 映射
+        shiroFilterFactoryBean.setLoginUrl("/index.jsp");
         log.info("shiro开启成功");
         return shiroFilterFactoryBean;
     }
