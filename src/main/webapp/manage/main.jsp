@@ -16,7 +16,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/jqGrid/js/jquery.jqGrid.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/jqGrid/js/i18n/grid.locale-cn.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-    <title>嘉汇管理系统</title>
+    <title>覔亖甴愢丢的网站</title>
 
 </head>
 <body>
@@ -33,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">嘉汇管理系统<small>V1.0</small></a>
+                    <a class="navbar-brand" href="">覔亖甴愢丢的网站<small>V1.0</small></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +41,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="javascript:void(0)">欢迎:<shiro:principal/> <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li class="dropdown"><a href="${pageContext.request.contextPath}/admin/out">退出登录</a></li>
+                        <li class="dropdown"><a href="${pageContext.request.contextPath}/manage/out">退出登录</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -181,7 +181,7 @@
                 <div class="col-sm-10" id="pictureManagement">
 
                     <div class="jumbotron">
-                        <h2>欢迎来到嘉汇管理系统</h2>
+                        <h2>覔亖甴愢丢欢迎你</h2>
                     </div>
 
                 </div>
@@ -190,7 +190,7 @@
         </div>
             <nav class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container text-center"><br>
-                    @嘉汇管理系统<br><br>
+                    @覔亖甴愢丢的网站<br><br>
                 </div>
             </nav>
         </div>

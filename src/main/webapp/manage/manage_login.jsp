@@ -25,7 +25,7 @@
 <script>
     function fm(){
         $.ajax({
-            url:"${pageContext.request.contextPath}/login",
+            url:"${pageContext.request.contextPath}/manage/login",
             type:"post",
             data:$("#login-form").serialize(),
             success:function(data){

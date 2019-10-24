@@ -25,7 +25,7 @@ public class RedisCache {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Around("execution(* com.xh.service.serviceImpl.*.query*(..))")
+    @Around("execution(* com.xh.service.user.serviceImpl.*.query*(..))")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         //获取实现类作为id
         String id = proceedingJoinPoint.getTarget().getClass().getName();
@@ -57,7 +57,7 @@ public class RedisCache {
 
 
     @AfterReturning
-    //@AfterReturning("execution(* com.xh.service.serviceImpl.*.*(..)) && !execution(* com.xh.service.serviceImpl.*.query*(..))")
+    //@AfterReturning("execution(* com.xh.service.user.serviceImpl.*.*(..)) && !execution(* com.xh.service.user.serviceImpl.*.query*(..))")
     public void after(JoinPoint joinPoint){
         String id = joinPoint.getTarget().getClass().getName();
         stringRedisTemplate.delete(id);
